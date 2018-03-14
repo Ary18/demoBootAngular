@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ElementoNav } from '../models/elementoNav';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  vociMenu: ElementoNav[] = [
+    {nome: 'Home', indirizzo: '/home', ordine: 1, cliccato: false},
+    {nome: 'Galleria', indirizzo: '/gallery', ordine: 2, cliccato: false},
+    {nome: 'Contattaci', indirizzo: '/contact', ordine: 3, cliccato: false}
+  ];
   constructor() { }
-
   ngOnInit() {
   }
 
