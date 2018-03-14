@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ContextService } from '../services/context.service';
 import { Persona } from '../models/persona';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +14,10 @@ export class HeaderComponent implements OnInit {
   cliccato: boolean;
   vociMenu: string[] = [];
   descrizionePersona: Persona;
+  messaggi: string;
 
-  constructor(private contextService: ContextService) {
+  constructor(private contextService: ContextService,
+              private messageService: MessageService) {
     this.nome = 'Ciao';
     this.ordine = 1;
     this.cliccato = false;
@@ -25,6 +28,7 @@ export class HeaderComponent implements OnInit {
    }
    nascondiElemento() {
     this.cliccato = ! this.cliccato;
+    this.messaggi = this.messageService.riceviMessaggioDaHeader();
    }
   ngOnInit() {
 
@@ -32,6 +36,7 @@ export class HeaderComponent implements OnInit {
     this.ordine = this.contextService.getTemperatura();
     this.cliccato = this.contextService.getBellezza();
     this.contextService.getPersona().subscribe(descrizionePersona => this.descrizionePersona = descrizionePersona);
+    this.messaggi = this.messageService.riceviMessaggioDaHeader();
   }
 
 }
