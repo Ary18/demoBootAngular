@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { ElementoNav } from '../models/elementoNav';
+// import { Persona } from '../models/persona';
 
 @Component({
   selector: 'app-header',
