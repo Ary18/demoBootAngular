@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  ricevi(datoRicevuto: string) {
+    this.title = datoRicevuto;
+  }
+  riceviStringa(dato: string) {
+    this.title = dato;
+  }
 }

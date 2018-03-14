@@ -1,7 +1,7 @@
-<app-header></app-header>
+<app-header [nome] = "title"></app-header>
 <div class="container p-3 mb-2 bg-primary text-white">
   <h1 class="text-center">Benvenuti nella mia app Angular</h1>
 </div>
-
+<app-body [utente] = "title" (bodyOutput) = "ricevi($event)" (stringaOutput) = "riceviStringa($event)"></app-body>
 
 <router-outlet></router-outlet>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ContextService } from '../services/context.service';
 import { Persona } from '../models/persona';
 
@@ -8,7 +8,7 @@ import { Persona } from '../models/persona';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  nome: string;
+  @Input() nome: string;
   ordine: number;
   cliccato: boolean;
   vociMenu: string[] = [];
