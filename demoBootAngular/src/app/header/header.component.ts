@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ElementoNav } from '../models/elementoNav';
+// import { ElementoNav } from '../models/elementoNav';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +7,23 @@ import { ElementoNav } from '../models/elementoNav';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  vociMenu: ElementoNav[] = [
-    {nome: 'Home', indirizzo: '/home', ordine: 1, cliccato: false},
-    {nome: 'Galleria', indirizzo: '/gallery', ordine: 2, cliccato: false},
-    {nome: 'Contattaci', indirizzo: '/contact', ordine: 3, cliccato: false}
-  ];
-  constructor() { }
+  nome: string;
+  ordine: number;
+  cliccato: boolean;
+  vociMenu: string[] = [];
+
+  constructor() {
+    this.nome = 'Ciao';
+    this.ordine = 1;
+    this.cliccato = false;
+
+    this.vociMenu.push('Home');
+    this.vociMenu.push('Galleria');
+    this.vociMenu.push('Contattaci');
+   }
+   nascondiElemento() {
+    this.cliccato = ! this.cliccato;
+   }
   ngOnInit() {
   }
 

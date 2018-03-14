@@ -1,5 +1,9 @@
 <div class="container-flex">
-    <ul>
-      <li *ngFor="let voce of vociMenu">{{voce.nome}}</li> 
-    </ul>
+  <ul>
+    <li *ngFor="let voce of vociMenu">{{voce}}</li>
+  </ul>
+<p>{{nome}}</p>
+<p>{{ordine}}</p>
+<p *ngIf="cliccato">{{cliccato}}</p>
+<button class="btn btn-success" (click)="nascondiElemento()">Cliccami per nascondere un elemento</button>
 </div>
