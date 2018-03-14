@@ -7,13 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { ContextService } from './services/context.service';
+import { BodyComponent } from './body/body.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    BodyComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +24,7 @@ import { HeaderComponent } from './header/header.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ContextService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

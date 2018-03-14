@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { Persona } from '../models/persona';
+import { ContextService } from '../services/context.service';
+import { Persona } from '../models/persona';
 
 @Component({
   selector: 'app-header',
@@ -11,8 +12,9 @@ export class HeaderComponent implements OnInit {
   ordine: number;
   cliccato: boolean;
   vociMenu: string[] = [];
+  descrizionePersona: Persona;
 
-  constructor() {
+  constructor(private contextService: ContextService) {
     this.nome = 'Ciao';
     this.ordine = 1;
     this.cliccato = false;
@@ -25,6 +27,11 @@ export class HeaderComponent implements OnInit {
     this.cliccato = ! this.cliccato;
    }
   ngOnInit() {
+
+    this.nome = this.contextService.getCittà();
+    this.ordine = this.contextService.getTemperatura();
+    this.cliccato = this.contextService.getBellezza();
+    this.contextService.getPersona().subscribe(descrizionePersona => this.descrizionePersona = descrizionePersona);
   }
 
 }
